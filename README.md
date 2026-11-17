@@ -54,3 +54,14 @@ Tests cover rejected login, encrypted CRUD and persistence, separate accounts, g
 3. Alternatively, from this directory run `npx vercel login`, then `npx vercel --prod` using your authenticated Vercel account.
 
 Deployment was not performed in this environment because no Vercel authentication was available. No deployment URL is claimed.
+
+## Deploy to GitHub Pages
+
+The workflow in `.github/workflows/pages.yml` builds and deploys on every push to `main`. It sets the Vite base path to the repository name; Vercel and local builds keep the default root path.
+
+In GitHub, open **Settings → Pages → Build and deployment → Source** and select **GitHub Actions**. Then open **Actions → Deploy to GitHub Pages → Run workflow** if the latest push has not already deployed.
+
+Expected site address after successful deployment:
+https://anthtooaung-general.github.io/pw_storing_-_generation/
+
+GitHub Pages serves static files over HTTPS. The security headers in `vercel.json` apply only to Vercel, not GitHub Pages. Browser-local vault data belongs to the site origin; an existing Vercel vault will not automatically appear here. Use encrypted backup export/restore to transfer it. Other projects hosted under the same GitHub Pages origin share that origin's browser storage, so host only trusted projects there.
