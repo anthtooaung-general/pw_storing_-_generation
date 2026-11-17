@@ -43,7 +43,15 @@ With an existing Chromium installation:
 PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm test
 ```
 
-Tests cover rejected login, encrypted CRUD and persistence, separate accounts, generator options, password changes, encrypted backup restore, and layouts at 320, 768, 1024, and 1440 pixels.
+Tests cover rejected login, encrypted CRUD and persistence, separate accounts, generator options, password changes, encrypted backup restore, and layouts from 320 to 1920 pixels. Redesign checks include populated vaults with long names, 64-character generated passwords, mobile action targets, dialog sizing, password visibility, keyboard navigation, and focus return.
+
+## Interface
+
+See [desktop and phone screenshots](docs/design-preview.md) for a preview of all four pages.
+
+The login, vault, generator, settings, and dialogs share a teal and mint design with responsive layouts. Desktop uses a fixed sidebar; phones use compact navigation, stacked panels, and 44-pixel vault action buttons. Generator switches retain native checkbox semantics and keyboard operation. Native dialogs support Escape, focus containment, and return focus to their opening action.
+
+`src/ui.js` contains the shared brand, SVG icons, and panel headings. `src/style.css` defines the common controls and design tokens, followed by tablet and phone breakpoints, reduced-motion preferences, and forced-color support. No external fonts or icon requests are required. The encrypted `still:v1:` record format and backup format remain compatible with the original app.
 
 ## Deploy to Vercel
 
